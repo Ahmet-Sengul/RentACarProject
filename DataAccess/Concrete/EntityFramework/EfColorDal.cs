@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Color entity)
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (RentACarProjectContext context = new RentACarProjectContext())
             {
                 var addedEntity = context.Entry(entity);
                 addedEntity.State = EntityState.Added;
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Delete(Color entity)
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (RentACarProjectContext context = new RentACarProjectContext())
             {
                 var deletedEntity = context.Entry(entity);
                 deletedEntity.State = EntityState.Deleted;
@@ -33,7 +33,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public Color Get(Expression<Func<Color, bool>> filter)
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (RentACarProjectContext context = new RentACarProjectContext())
             {
                 return context.Set<Color>().SingleOrDefault(filter);
             }
@@ -41,7 +41,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (RentACarProjectContext context = new RentACarProjectContext())
             {
                 return filter == null
                     ? context.Set<Color>().ToList()
@@ -51,7 +51,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Update(Color entity)
         {
-            using (ReCapProjectContext context = new ReCapProjectContext())
+            using (RentACarProjectContext context = new RentACarProjectContext())
             {
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
