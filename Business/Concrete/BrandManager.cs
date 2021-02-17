@@ -1,9 +1,12 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 namespace Business.Concrete
 {
     public class BrandManager : IBrandService
@@ -15,54 +18,32 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public void Add(Brand brand)
+        public IResult Add(Brand brand)
         {
+            return new SuccessResult(Messages.BrandAdded);
             _brandDal.Add(brand);
         }
 
-        public void Add(DocuSign.eSign.Model.Brand brand)
+        public IResult Delete(Brand brand)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Brand brand)
-        {
+            return new SuccessResult(Messages.BrandDeleted);
             _brandDal.Delete(brand);
         }
 
-        public void Delete(DocuSign.eSign.Model.Brand brand)
+        public IResult Update(Brand brand)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Brand> GetAll()
-        {
-            return _brandDal.GetAll();
-        }
-
-        public Brand GetById(int brandId)
-        {
-            return _brandDal.Get(b => b.BrandId == brandId);
-        }
-
-        public void Update(Brand brand)
-        {
+            return new SuccessResult(Messages.BrandUpdated);
             _brandDal.Update(brand);
         }
 
-        public void Update(DocuSign.eSign.Model.Brand brand)
+        public IDataResult<List<Brand>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
         }
 
-        List<DocuSign.eSign.Model.Brand> IBrandService.GetAll()
+        public IDataResult<Brand> GetById(int Id)
         {
-            throw new NotImplementedException();
-        }
-
-        DocuSign.eSign.Model.Brand IBrandService.GetById(int brandId)
-        {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == Id));
         }
     }
 }
