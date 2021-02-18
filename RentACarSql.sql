@@ -5,7 +5,7 @@
 	ColorId INT,
 	ModelYear INT,
 	DailyPrice DECIMAL,
-	Descriptions NVARCHAR(25),
+	Descriptions NVARCHAR(50),
 	FOREIGN KEY (BrandId) REFERENCES Brands(BrandId),
 	FOREIGN KEY (ColorId) REFERENCES Colors(ColorId),
 )
@@ -20,6 +20,35 @@ CREATE TABLE Brands
 (
 	BrandId INT PRIMARY KEY IDENTITY(1,1),
 	BrandName NVARCHAR(25),
+)
+
+CREATE TABLE Users
+(
+	UserId INT PRIMARY KEY IDENTITY(1,1),
+	FirstName NVARCHAR(50),
+	LastName NVARCHAR(50),
+	Email NVARCHAR(50),
+	[Password] NVARCHAR(50),
+	
+)
+
+CREATE TABLE Customers
+(
+	CustomerId int PRIMARY KEY IDENTITY(1,1),
+	UserId int,
+	CompanyName nvarchar(25),
+	FOREIGN KEY (UserId) REFERENCES Users(UserId),
+)
+
+CREATE TABLE Rentals
+(
+	RentalId INT PRIMARY KEY IDENTITY(1,1), 
+	CarId INT,
+	CustomerId INT,
+	RentDate DATETIME,
+	ReturnDate DATETIME,
+	FOREIGN KEY (CarId) REFERENCES Cars(CarId),
+	FOREIGN KEY (CustomerId) REFERENCES Customers(CustomerId),
 )
 
 INSERT INTO Colors (ColorName)
