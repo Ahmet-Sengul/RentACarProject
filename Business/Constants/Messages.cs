@@ -38,7 +38,7 @@ namespace Business.Constants
         //User Messages
         public static string UserAdded = "Kullanıcı başarılı bir şekilde eklendi.";
         public static string UserListed = "Kullanıcı listelendi";
-        public static string UsersListed = "Kullanıcı listelendi";
+        public static string UsersListed = "Kullanıcılar listelendi";
         public static string UserDeleted = "Kullanıcı silindi";
         public static string UserUpdated = "Kullanıcı güncellendi";
         //Customer Messages
