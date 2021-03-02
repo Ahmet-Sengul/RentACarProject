@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetCarsByBrandId(int id)
         {
-            var result = _carService.GetCarsByBrandId(id);
+            var result = _carService.GetByBrandId(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -91,21 +91,11 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbydailyprice")]
-        public IActionResult GetByDailyPrice(decimal min, decimal max)
-        {
-            var result = _carService.GetByDailyPrice(min, max);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
 
         [HttpGet("getcarsbycolorid")]
         public IActionResult GetCarsByColorId(int id)
         {
-            var result = _carService.GetCarsByColorId(id);
+            var result = _carService.GetByColorId(id);
             if (result.Success)
             {
                 return Ok(result);

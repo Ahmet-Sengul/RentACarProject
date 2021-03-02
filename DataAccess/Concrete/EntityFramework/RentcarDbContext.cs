@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //DB'ye bağlandığımız yer
-            optionsBuilder.UseSqlServer(@"Server = (localdb)\MSSQLLocalDb; Database = RentcarDb; Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server = (localdb)\MSSQLLocalDb; Database = RentACarDb; Trusted_Connection=true");
         }
         public DbSet<Car> Cars { get; set; } 
         public DbSet<Color> Colors { get; set; }
@@ -19,6 +19,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        
+        public DbSet<CarImage> CarImages { get; set; }
     }
 }

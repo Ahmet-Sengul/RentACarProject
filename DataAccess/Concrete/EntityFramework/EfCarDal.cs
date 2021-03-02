@@ -27,7 +27,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  CarId = c.CarId,
                                  DailyPrice = (int)c.DailyPrice,
                                  ModelYear = c.ModelYear,
-                                 Descriptions = c.Descriptions
+                                 Descriptions = c.Description
                              };
                 return result.ToList();
             }
