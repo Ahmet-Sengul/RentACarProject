@@ -12,6 +12,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Entities.DTOs;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -40,6 +41,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("car.add,admin")]
         public IResult Update(Car car)
         {
             //business codes
